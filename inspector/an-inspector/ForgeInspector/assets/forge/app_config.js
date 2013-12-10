@@ -1,1 +1,0 @@
-window.forge = {}; window.forge.config = {"modules": {"notification": {"version": "exampleversion"}, "inspector": {"version": "1.0"}}};

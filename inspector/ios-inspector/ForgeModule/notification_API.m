@@ -25,8 +25,13 @@ static UIAlertView *loading;
 }
 
 + (void)setBadgeNumber:(ForgeTask*)task number:(NSNumber*)number {
-    [UIApplication sharedApplication].applicationIconBadgeNumber = [number intValue];
-    [task success:nil];
+	[UIApplication sharedApplication].applicationIconBadgeNumber = [number intValue];
+	[task success:nil];
+}
+
++ (void)getBadgeNumber:(ForgeTask*)task {
+	NSInteger number = [UIApplication sharedApplication].applicationIconBadgeNumber;
+	[task success:[NSNumber numberWithInteger:number]];
 }
 
 + (void)alert:(ForgeTask*)task title:(NSString*)title body:(NSString*)body {

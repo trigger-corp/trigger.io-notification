@@ -16,7 +16,7 @@ The ``forge.notification`` namespace allows you to alert the user through variou
 !param: error `function(content)` called with details of any error which may occur
 
 !method: forge.notification.setBadgeNumber(number, success, error)
-!param: number `string` number
+!param: number `integer` number
 !param: success `function()` callback to be invoked when no errors occur
 !description: Allows you to set or remove a badge for your app's icon on the iOS home screen.
 !platforms: iOS
@@ -27,6 +27,12 @@ particularly useful if you want to clear a badge set by a push
 notification.
 
 ![Badge number](badge_screenshot.png)
+
+!method: forge.notification.getBadgeNumber(success, error)
+!param: success `function(integer)` callback to be invoked when no errors occur (argument is the current badge number)
+!description: Allows you to get the badge number for your app's icon on the iOS home screen.
+!platforms: iOS
+!param: error `function(content)` called with details of any error which may occur
 
 !method: forge.notification.alert(title, text, success, error)
 !param: title `string` title

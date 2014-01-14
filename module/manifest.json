@@ -1,8 +1,8 @@
 {
-    "changes": "* Allow loading messages to be updated by making repeated calls to showLoading.", 
-    "description": "Display notifications to your users.\n\nThe notification module gives access to various native features to alert the user, as well as show natively style alert, prompt and confirm dialogs.", 
-    "min_platform_version": "v2.1.0", 
-    "name": "notification", 
-    "platform_version": "v2.1.0", 
-    "version": "2.2"
+	"changes": "*  (iOS only) Retrieve current badge count with `getBadgeNumber`",
+	"description": "Display notifications to your users.\n\nThe notification module gives access to various native features to alert the user, as well as show natively style alert, prompt and confirm dialogs.",
+	"min_platform_version": "v2.1.0",
+	"namespace": "notification",
+	"platform_version": "v2.1.0",
+	"version": "2.3"
 }

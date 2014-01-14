@@ -28,6 +28,16 @@ forge['notification'] = {
 		}, success, error);
 	},
 
+	/**
+	 * Get the badge number for the application icon.
+	 *
+	 * @param {function(string)=} success
+	 * @param {function({message: string}=} error
+	 */
+	'getBadgeNumber': function (success, error) {
+		forge.internal.call("notification.getBadgeNumber", {}, success, error);
+	},
+
 	'alert': function (title, body, success, error) {
 		forge.internal.call("notification.alert", {
 			title: title,

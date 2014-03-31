@@ -10,8 +10,9 @@
 #import "RIButtonItem.h"
 #import "UIAlertView+Blocks.h"
 #import "PCToastMessage.h"
+#import "CustomIOS7AlertView.h"
 
-static UIAlertView *loading;
+static NSObject *loading;
 
 @implementation notification_API
 
@@ -65,17 +66,31 @@ static UIAlertView *loading;
 
 + (void)showLoading:(ForgeTask*)task title:(NSString*)title body:(NSString*)body {
 	if (loading != nil) {
-		[loading setTitle:title];
-		[loading setMessage:body];
+		if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+            [(UIAlertView *)loading setTitle:title];
+            [(UIAlertView *)loading setMessage:body];
+        } else {
+            [(CustomIOS7AlertView *)loading setTitle:title];
+            [(CustomIOS7AlertView *)loading setMessage:body];
+        }
 	} else {
-		loading = [[UIAlertView alloc] initWithTitle:title message:body delegate:nil cancelButtonTitle:nil otherButtonTitles: nil];
-		[loading show];
-	 
-		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	 
-		indicator.center = CGPointMake(loading.bounds.size.width / 2, loading.bounds.size.height - 50);
-		[indicator startAnimating];
-		[loading addSubview:indicator];
+        if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+            loading = [[UIAlertView alloc] initWithTitle:title message:body delegate:nil cancelButtonTitle:nil otherButtonTitles: nil];
+            [(UIAlertView *)loading show];
+            
+            UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            
+            indicator.center = CGPointMake(((UIAlertView *)loading).bounds.size.width / 2, ((UIAlertView *)loading).bounds.size.height - 50);
+            [indicator startAnimating];
+            
+            [(UIAlertView *)loading addSubview:indicator];
+        } else {
+            UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            
+            loading = [[CustomIOS7AlertView alloc] initWithTitleAndActivityIndicator:title message:body activityIndicator:indicator];
+            
+            [(CustomIOS7AlertView *)loading show];
+        }
 	}
 	
 	[task success:nil];
@@ -83,7 +98,11 @@ static UIAlertView *loading;
 
 + (void)hideLoading:(ForgeTask*)task {
 	if (loading != nil) {
-		[loading dismissWithClickedButtonIndex:0 animated:YES];
+		if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+            [(UIAlertView *)loading dismissWithClickedButtonIndex:0 animated:YES];
+        } else {
+            [(CustomIOS7AlertView *)loading close];
+        }
 		loading = nil;
 	}
 	[task success:nil];

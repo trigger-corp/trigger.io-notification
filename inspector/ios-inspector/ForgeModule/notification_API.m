@@ -85,7 +85,7 @@ static NSObject *loading;
             
             [(UIAlertView *)loading addSubview:indicator];
         } else {
-            UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             
             loading = [[CustomIOS7AlertView alloc] initWithTitleAndActivityIndicator:title message:body activityIndicator:indicator];
             

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00989CC118E9DC5A00C1B14D /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00989CC018E9DC5A00C1B14D /* CustomIOS7AlertView.m */; };
 		7195530316BA71FA00E26C44 /* notification_API.m in Sources */ = {isa = PBXBuildFile; fileRef = 7195530216BA71FA00E26C44 /* notification_API.m */; };
 		B31B6D5215C13D5200854074 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B6D5115C13D5200854074 /* Foundation.framework */; };
 		B31B6D6F15C1467100854074 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B6D6E15C1467100854074 /* CoreFoundation.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00989CBF18E9DC3D00C1B14D /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
+		00989CC018E9DC5A00C1B14D /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
 		7195530116BA71FA00E26C44 /* notification_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notification_API.h; sourceTree = "<group>"; };
 		7195530216BA71FA00E26C44 /* notification_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = notification_API.m; sourceTree = "<group>"; };
 		B31B6D4E15C13D5200854074 /* libForgeModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libForgeModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +74,8 @@
 		719552FF16BA71EF00E26C44 /* notification */ = {
 			isa = PBXGroup;
 			children = (
+				00989CBF18E9DC3D00C1B14D /* CustomIOS7AlertView.h */,
+				00989CC018E9DC5A00C1B14D /* CustomIOS7AlertView.m */,
 				B327B687170DBC0700468FEF /* PCToastMessage.h */,
 				B327B688170DBC0700468FEF /* PCToastMessage.m */,
 				B327B67E170DBA4100468FEF /* RIButtonItem.h */,
@@ -195,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00989CC118E9DC5A00C1B14D /* CustomIOS7AlertView.m in Sources */,
 				7195530316BA71FA00E26C44 /* notification_API.m in Sources */,
 				B327B684170DBA4100468FEF /* RIButtonItem.m in Sources */,
 				B327B685170DBA4100468FEF /* UIActionSheet+Blocks.m in Sources */,

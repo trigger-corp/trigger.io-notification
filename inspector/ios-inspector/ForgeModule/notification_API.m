@@ -58,6 +58,17 @@ static NSObject *loading;
 	[[[UIAlertView alloc] initWithTitle:title message:body cancelButtonItem:negativeBtn otherButtonItems:positiveBtn, nil] show];
 }
 
++ (void)prompt:(ForgeTask*)task title:(NSString*)title body:(NSString*)body {
+  RIButtonItem *ok = [RIButtonItem item];
+  ok.label = @"OK";
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:body cancelButtonItem:ok otherButtonItems:nil];
+  UITextField *input = [alertView textFieldAtIndex:0];
+  ok.action = ^{
+    [task success:input.text];
+  };
+  [alertView show];
+}
+
 + (void)toast:(ForgeTask*)task body:(NSString*)body {
 	[PCToastMessage toastWithDuration:5.0 andText:body inView:[[[ForgeApp sharedApp] viewController] view]];
 	[task success:nil];

@@ -104,12 +104,36 @@ public class API {
 						task.success(false);
 					}
 				});
-				
+
 				alertBuilder.create().show();
 			}
-		});		
+		});
 	}
-	
+
+	public static void prompt(final ForgeTask task, @ForgeParam("title") final String title, @ForgeParam("body") final String body) {
+		task.performUI(new Runnable() {
+			@Override
+			public void run() {
+				AlertDialog.Builder alertBuilder = new AlertDialog.Builder(ForgeApp.getActivity());
+				alertBuilder.setTitle(title);
+				alertBuilder.setMessage(body);
+
+				final EditText input = new EditText(this);
+				alertBuilder.setView(input);
+
+				alertBuilder.setCancelable(false);
+				alertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						task.success(input.getText());
+					}
+				});
+
+				alertBuilder.create().show();
+			}
+		});
+	}
+
 	public static void toast(final ForgeTask task, @ForgeParam("body") final String body) {
 		task.performUI(new Runnable() {
 			@Override

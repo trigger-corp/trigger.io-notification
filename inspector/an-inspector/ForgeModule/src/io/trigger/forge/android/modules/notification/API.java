@@ -167,7 +167,7 @@ public class API {
 	}
 	
 	/***
-	 * Creates an view with an input field
+	 * Creates a view with an input field
 	 * The input field allows single line text.
 	 ****/
 	private static View createView(String defVal) {

@@ -70,7 +70,7 @@ forge['notification'] = {
 	 * Create a Android native input prompt dialog.
 	 *
 	 * @param {string} title
-	 * @param {string} text
+	 * @param {string} defVal
 	 * @param {function()=} success
 	 * @param {function({message: string}=} error
 	 */

@@ -52,6 +52,12 @@ forge['notification'] = {
 			negative: negative
 		}, success, error);
 	},
+	'prompt': function (title, body, success, error) {
+		forge.internal.call("notification.prompt", {
+			title: title,
+			body: body
+		}, success, error);
+	},
 	'toast': function (body, success, error) {
 		forge.internal.call("notification.toast", {
 			body: body

@@ -1,8 +1,8 @@
 {
-	"changes": "*  (iOS7 only) Fix for loading spinner not showing with `showLoading`",
-	"description": "Display notifications to your users.\n\nThe notification module gives access to various native features to alert the user, as well as show natively style alert, prompt and confirm dialogs.",
-	"min_platform_version": "v2.1.0",
-	"namespace": "notification",
-	"platform_version": "v2.1.0",
-	"version": "2.4"
+    "changes": "* Support arm64 devices running iOS 8", 
+    "description": "Display notifications to your users.\n\nThe notification module gives access to various native features to alert the user, as well as show natively style alert, prompt and confirm dialogs.", 
+    "min_platform_version": "v2.1.0", 
+    "namespace": "notification", 
+    "platform_version": "v2.2.0", 
+    "version": "2.5"
 }

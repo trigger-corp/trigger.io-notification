@@ -26,7 +26,16 @@ static NSObject *loading;
 }
 
 + (void)setBadgeNumber:(ForgeTask*)task number:(NSNumber*)number {
-	[UIApplication sharedApplication].applicationIconBadgeNumber = [number intValue];
+	UIApplication *application = [UIApplication sharedApplication];
+	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) { /* iOS 8 */
+		UIUserNotificationSettings *settings = [application currentUserNotificationSettings];
+		if (!(settings.types & UIUserNotificationTypeBadge)) {
+			settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+			[application registerUserNotificationSettings:settings];
+		}
+	}
+
+	application.applicationIconBadgeNumber = [number intValue];
 	[task success:nil];
 }
 

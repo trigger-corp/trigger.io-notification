@@ -1,8 +1,8 @@
 {
-    "changes": "* Request user permission for setBadgeNumber() on iOS8", 
+    "changes": "* Set correct orientation when app is running on iOS8", 
     "description": "Display notifications to your users.\n\nThe notification module gives access to various native features to alert the user, as well as show natively style alert, prompt and confirm dialogs.", 
     "min_platform_version": "v2.2.0", 
     "namespace": "notification", 
     "platform_version": "v2.2.0", 
-    "version": "2.6"
+    "version": "2.7"
 }

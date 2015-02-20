@@ -26,12 +26,17 @@
 
 @property(nonatomic, copy) NSString *title;
 @property(nonatomic, copy) NSString *message;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *messageLabel;
 
 @property (nonatomic, assign) id<CustomIOS7AlertViewDelegate> delegate;
 @property (nonatomic, retain) NSArray *buttonTitles;
 @property (nonatomic, assign) BOOL useMotionEffects;
 
 @property (copy) void (^onButtonTouchUpInside)(CustomIOS7AlertView *alertView, int buttonIndex) ;
+
+@property (nonatomic, readwrite) BOOL adjustViewForKeyboardNotifications;
+@property (nonatomic, readwrite) BOOL invertButtonView;
 
 - (id)init;
 

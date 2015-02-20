@@ -81,6 +81,7 @@ static NSObject *loading;
         } else {
             [(CustomIOS7AlertView *)loading setTitle:title];
             [(CustomIOS7AlertView *)loading setMessage:body];
+            
         }
 	} else {
         if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
@@ -97,6 +98,9 @@ static NSObject *loading;
             UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             
             loading = [[CustomIOS7AlertView alloc] initWithTitleAndActivityIndicator:title message:body activityIndicator:indicator];
+            [(CustomIOS7AlertView *)loading setParentView:[[ForgeApp sharedApp] viewController].view];
+            [(CustomIOS7AlertView *)loading setUseMotionEffects:TRUE];
+            
             
             [(CustomIOS7AlertView *)loading show];
         }

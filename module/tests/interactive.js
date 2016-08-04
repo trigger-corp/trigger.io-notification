@@ -1,4 +1,4 @@
-module("forge.document");
+module("forge.notification");
 
 if (!forge.is.safari()) {
 	asyncTest("Simple notification", 1, function() {
@@ -7,7 +7,7 @@ if (!forge.is.safari()) {
 				Yes: function () {
 					ok(true, "Success");
 					start();
-				}, 
+				},
 				No: function () {
 					ok(false, "User claims failure");
 					start();
@@ -27,7 +27,7 @@ if (forge.is.ios()) {
 				Yes: function () {
 					ok(true, "Success");
 					start();
-				}, 
+				},
 				No: function () {
 					ok(false, "User claims failure");
 					start();
@@ -45,7 +45,7 @@ if (forge.is.ios()) {
 				Yes: function () {
 					ok(true, "Success");
 					start();
-				}, 
+				},
 				No: function () {
 					ok(false, "User claims failure");
 					start();

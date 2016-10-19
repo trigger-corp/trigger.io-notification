@@ -52,6 +52,12 @@ forge['notification'] = {
 			negative: negative
 		}, success, error);
 	},
+	'prompt': function (title, body, success, error) {
+		forge.internal.call("notification.prompt", {
+			title: title,
+			body: body
+		}, success, error);
+	},
 	'toast': function (body, success, error) {
 		forge.internal.call("notification.toast", {
 			body: body
@@ -65,5 +71,19 @@ forge['notification'] = {
 	},
 	'hideLoading': function (success, error) {
 		forge.internal.call("notification.hideLoading", {}, success, error);
+	},
+	/**
+	 * Create a Android native input prompt dialog.
+	 *
+	 * @param {string} title
+	 * @param {string} defVal
+	 * @param {function()=} success
+	 * @param {function({message: string}=} error
+	 */
+	'prompt': function (title, defVal, success, error) {
+		forge.internal.call("notification.prompt", {
+			title: title,
+			defVal: defVal
+		}, success, error);
 	}
 };

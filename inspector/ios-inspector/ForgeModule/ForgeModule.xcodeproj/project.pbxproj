@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00989CC118E9DC5A00C1B14D /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00989CC018E9DC5A00C1B14D /* CustomIOS7AlertView.m */; };
+		718F46391D95121A00B24A27 /* notification_Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 718F46381D95121A00B24A27 /* notification_Delegate.m */; };
+		718F463C1D95126F00B24A27 /* notification_EventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 718F463B1D95126F00B24A27 /* notification_EventListener.m */; };
 		7195530316BA71FA00E26C44 /* notification_API.m in Sources */ = {isa = PBXBuildFile; fileRef = 7195530216BA71FA00E26C44 /* notification_API.m */; };
 		B31B6D5215C13D5200854074 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B6D5115C13D5200854074 /* Foundation.framework */; };
 		B31B6D6F15C1467100854074 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B6D6E15C1467100854074 /* CoreFoundation.framework */; };
@@ -26,6 +28,10 @@
 		00989CBF18E9DC3D00C1B14D /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		00989CC018E9DC5A00C1B14D /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
 		717FC1A11A972983006A0DEF /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
+		718F46371D95121A00B24A27 /* notification_Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notification_Delegate.h; sourceTree = "<group>"; };
+		718F46381D95121A00B24A27 /* notification_Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = notification_Delegate.m; sourceTree = "<group>"; };
+		718F463A1D95126F00B24A27 /* notification_EventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notification_EventListener.h; sourceTree = "<group>"; };
+		718F463B1D95126F00B24A27 /* notification_EventListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = notification_EventListener.m; sourceTree = "<group>"; };
 		7195530116BA71FA00E26C44 /* notification_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notification_API.h; sourceTree = "<group>"; };
 		7195530216BA71FA00E26C44 /* notification_API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = notification_API.m; sourceTree = "<group>"; };
 		B31B6D4E15C13D5200854074 /* libForgeModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libForgeModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +94,10 @@
 				B327B683170DBA4100468FEF /* UIAlertView+Blocks.m */,
 				7195530116BA71FA00E26C44 /* notification_API.h */,
 				7195530216BA71FA00E26C44 /* notification_API.m */,
+				718F46371D95121A00B24A27 /* notification_Delegate.h */,
+				718F46381D95121A00B24A27 /* notification_Delegate.m */,
+				718F463A1D95126F00B24A27 /* notification_EventListener.h */,
+				718F463B1D95126F00B24A27 /* notification_EventListener.m */,
 			);
 			name = notification;
 			sourceTree = "<group>";
@@ -166,7 +176,7 @@
 		B31B6D4515C13D5200854074 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Trigger Corp";
 			};
 			buildConfigurationList = B31B6D4815C13D5200854074 /* Build configuration list for PBXProject "ForgeModule" */;
@@ -204,8 +214,10 @@
 			files = (
 				00989CC118E9DC5A00C1B14D /* CustomIOS7AlertView.m in Sources */,
 				7195530316BA71FA00E26C44 /* notification_API.m in Sources */,
+				718F46391D95121A00B24A27 /* notification_Delegate.m in Sources */,
 				B327B684170DBA4100468FEF /* RIButtonItem.m in Sources */,
 				B327B685170DBA4100468FEF /* UIActionSheet+Blocks.m in Sources */,
+				718F463C1D95126F00B24A27 /* notification_EventListener.m in Sources */,
 				B327B686170DBA4100468FEF /* UIAlertView+Blocks.m in Sources */,
 				B327B689170DBC0700468FEF /* PCToastMessage.m in Sources */,
 			);
@@ -227,17 +239,28 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -251,8 +274,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
-				ONLY_ACTIVE_ARCH = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s arm64 i386 x86_64";
 			};
@@ -264,16 +287,26 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -281,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

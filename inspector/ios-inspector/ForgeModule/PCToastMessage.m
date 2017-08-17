@@ -76,14 +76,14 @@
         text        = [aString copy];
         _label      = [[UILabel alloc] init];
         
-		[_label setLineBreakMode:UILineBreakModeWordWrap];
+		[_label setLineBreakMode:NSLineBreakByWordWrapping];
 		[_label setNumberOfLines:0];
         [_label setAdjustsFontSizeToFitWidth: YES];
         [_label setText: text];
         [_label setFont: LabelFont];
         
         CGRect frame = CGRectZero;
-        frame.size = [text sizeWithFont:_label.font constrainedToSize:CGSizeMake([[ForgeApp sharedApp] webView].frame.size.width * 0.9, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+        frame.size = [text sizeWithFont:_label.font constrainedToSize:CGSizeMake([[ForgeApp sharedApp] webView].frame.size.width * 0.9, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
         [_label setFrame: frame];
         
         frame.size = CGSizeMake(frame.size.width + HorizontalPadding, frame.size.height + VerticalPadding);

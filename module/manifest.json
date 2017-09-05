@@ -1,8 +1,8 @@
 {
-    "changes": "* Updated for iOS 11\n* Updated for Android 25.",
+    "changes": "* Updated for iOS 11\n* Updated for Android 26.",
     "description": "Display notifications to your users.\n\nThe notification module gives access to various native features to alert the user, as well as show natively style alert, prompt and confirm dialogs.",
     "min_platform_version": "v2.6.1",
     "namespace": "notification",
-    "platform_version": "feature_ios11",
+    "platform_version": "v2.6.1",
     "version": "2.8"
 }

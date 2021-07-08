@@ -104,12 +104,36 @@ public class API {
 						task.success(false);
 					}
 				});
-				
+
 				alertBuilder.create().show();
 			}
-		});		
+		});
 	}
-	
+
+	public static void prompt(final ForgeTask task, @ForgeParam("title") final String title, @ForgeParam("body") final String body) {
+		task.performUI(new Runnable() {
+			@Override
+			public void run() {
+				AlertDialog.Builder alertBuilder = new AlertDialog.Builder(ForgeApp.getActivity());
+				alertBuilder.setTitle(title);
+				alertBuilder.setMessage(body);
+
+				final EditText input = new EditText(this);
+				alertBuilder.setView(input);
+
+				alertBuilder.setCancelable(false);
+				alertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						task.success(input.getText());
+					}
+				});
+
+				alertBuilder.create().show();
+			}
+		});
+	}
+
 	public static void toast(final ForgeTask task, @ForgeParam("body") final String body) {
 		task.performUI(new Runnable() {
 			@Override
@@ -118,5 +142,75 @@ public class API {
 				task.success();
 			}
 		});
+	}
+
+	private static final int INPUT_FIELD_ID = 1001;
+	/***
+	 * Shows an alert prompt with an input field. By default the input field will not be
+	 * a multiline field
+	 ****/
+	public static void prompt(final ForgeTask task, @ForgeParam("title") final String title, @ForgeParam("defVal") final String defVal) {
+		
+		task.performUI(new Runnable() {
+			@Override
+			public void run() {
+				AlertDialog.Builder alertBuilder = new AlertDialog.Builder(ForgeApp.getActivity());
+				alertBuilder.setTitle(title);
+				alertBuilder.setView(createView(defVal));
+				alertBuilder.setCancelable(false);
+				alertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						
+						String input = null;
+						if(dialog instanceof Dialog) {
+							Dialog parent =Dialog.class.cast(dialog);
+							EditText edit = (EditText) parent.findViewById(INPUT_FIELD_ID);
+							
+							if(edit != null && edit.getText() != null) {
+								input = edit.getText().toString();
+							}
+						}
+						
+						task.success(input);
+					}
+				});
+				
+				alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						task.success();
+					}
+				});
+
+				AlertDialog dialog = alertBuilder.create();
+				
+				dialog.show();
+			}
+		});
+	}
+	
+	/***
+	 * Creates a view with an input field
+	 * The input field allows single line text.
+	 ****/
+	private static View createView(String defVal) {
+		Activity context = ForgeApp.getActivity();
+		ViewGroup ui = new LinearLayout(context);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		ui.setLayoutParams(params);
+		
+		EditText input = new EditText(context);
+		input.setId(INPUT_FIELD_ID);
+		input.setSingleLine(true);
+		input.setLayoutParams(params);
+		if(defVal != null) {
+			input.setText(defVal);
+			input.setSelection(defVal.length());	// set the cursor to the end
+		}
+		
+		ui.addView(input);
+		
+		return ui;
 	}
 }
